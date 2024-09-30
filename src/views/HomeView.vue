@@ -1,10 +1,11 @@
 <script setup>
-import router from '@/router';
+import router from '@/router'
 import{useProductStore} from '@/stores/couter.js'
 const productStore = useProductStore() 
 const router = userouter()
+
 function visualiza(id) {
-  router.push('/product/$(id)')
+  router.push('/product/${id}')
 }
 </script>
 
@@ -20,11 +21,13 @@ function visualiza(id) {
   <tr>Ações</tr>
   </thead>
   <tbody>
-    <tr> v-for = "product in productStore.product" :Key='product.id'
+    <tr v-for= "product in productStore.product" :Key='product.id'>
 <td>{{ product.id}}</td>
 <td>{{ product.name}}</td>
 <td>{{ product.price}}</td>
+<td><button>@click="visualizar(product.id)"</button></td>
 <td><button>@click=</button></td>
+
     </tr>
   </tbody>
 </table>
